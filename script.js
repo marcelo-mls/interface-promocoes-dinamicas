@@ -1,6 +1,5 @@
-// script.js
-const API_BASE = 'http://localhost:3001';  // Development
-// const API_BASE = 'https://YOUR_API_URL';  // Production
+// const API_BASE = 'http://localhost:3001';  // Development
+const API_BASE = 'https://proxy-promocoes-dinamicas.onrender.com';  // Production
 
 const form = document.getElementById('promo-form');
 const submitBtn = document.getElementById('submit-btn');
