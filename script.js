@@ -1,11 +1,12 @@
-// const API_BASE = 'http://localhost:3001';  // Development
-const API_BASE = 'https://proxy-promocoes-dinamicas.onrender.com';  // Production
+const API_BASE = 'http://localhost:3001';  // Development
+//const API_BASE = 'https://proxy-promocoes-dinamicas.onrender.com';  // Production
 
 const form = document.getElementById('promo-form');
 const submitBtn = document.getElementById('submit-btn');
 const viewBtn   = document.getElementById('view-btn'); 
 const vitrine = document.getElementById('vitrine');
 const loadingEl = document.getElementById('loading');
+const errorEl = document.getElementById('error');
 
 const requiredFields = ['program', 'id_customer'];
 
@@ -23,6 +24,7 @@ requiredFields.forEach(id =>
 form.addEventListener('submit', async e => {
   e.preventDefault();
 
+  errorEl.style.display = 'none';
   viewBtn.style.display = 'none';
 
   const params = {};
@@ -34,6 +36,12 @@ form.addEventListener('submit', async e => {
 
   loadingEl.style.display = 'block';
   vitrine.innerHTML = '';
+
+  loadingEl.textContent = 'Buscando Promoções... 🛒';
+
+  const coldStartTimer = setTimeout(() => {
+    loadingEl.innerHTML = '<p>Eita! Parece que a seção de frios deu um Cold Start no servidor 🥶❄️<br>Aguarde que já estamos descongelando as promoções! 🛒</p>';
+  }, 10000);
 
   try {
     const res = await fetch(url);
@@ -49,7 +57,11 @@ form.addEventListener('submit', async e => {
   } catch (err) {
     console.error(err);
     loadingEl.style.display = 'none';
-    vitrine.innerHTML = '<p class="empty-message">Sem promoções disponíveis 😔</p>';
+    errorEl.style.display = 'block';
+    errorEl.innerHTML = '<p class="empty-message">Erro inesperado! 😅 Parece que um carrinho atropelou o servidor! 🛒💥<br>Já estamos consertando — volte em alguns minutos.</p>';
+  } finally {
+    clearTimeout(coldStartTimer);
+    loadingEl.style.display = 'none';
   }
 });
 
