@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Dinâmica de Promoções</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>API Dinâmica de Promoções</header>
+  <main>
+    <div class="form-container">
+      <form id="promo-form">
+        <label for="program">Program *</label>
+        <input type="text" id="program" name="program"  placeholder="PA" required>
+        <label for="id_customer">Customer ID *</label>
+        <input type="text" id="id_customer" name="id_customer" required>
+        <label for="type">Type</label>
+        <input type="text" id="type" name="type" placeholder="KILLER">
+        <label for="category">Category</label>
+        <input type="text" id="category" name="category">
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" min="1">
+        <label for="state">State</label>
+        <input type="text" id="state" name="state">
+        <button type="submit" id="submit-btn" disabled>Buscar promoções 🛒</button>
+
+        <button type="button" id="view-btn" style="display: none;">
+          Visualizar payload em nova aba
+        </button>
+
+      </form>
+    </div>
+    <div class="vitrine-container">
+      <div id="loading" class="loading-message" style="display: none;">
+        Buscando Promoções... 🛒
+      </div>
+      <div id="vitrine" class="vitrine"></div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  font-size: 18px;
+  color: #333;
+  z-index: 1000;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  padding: 60px 20px 20px 20px;
+  /* espaço para header */
+  overflow: hidden;
+}
+
+.form-container {
+  width: 300px;
+  margin-right: 40px;
+  position: fixed;
+  top: 60px;
+  /* fixa abaixo do header */
+  align-self: flex-start;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container label {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.form-container input {
+  padding: 8px;
+  margin-top: 4px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-container button {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  background: #56bca6;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-container #view-btn {
+  background: #36937e;
+  margin-top: 10px;
+}
+
+.form-container button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.vitrine-container {
+  flex: 1;
+  overflow-y: auto;
+  /* habilita scroll interno */
+  margin-left: 320px;
+}
+
+.vitrine {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 600px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.vitrine-item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  background: #fff;
+  border-radius: 4px;
+  min-width: 0; /* Permite que o grid-item encolha */
+}
+
+.vitrine-item img {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.vitrine-item .info {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  /* gap: 4px; opcional, espaça description e dynamic */
+}
+
+.vitrine-item .description {
+  font-size: 12px;
+  color: #4e4e4e;
+  margin: 20px 0 0 0;
+}
+
+.vitrine-item .dynamic {
+  font-size: 15px;
+  font-weight: bold;
+  color: #56bca6;
+  margin: 5px 0 10px 0;
+}
+
+.vitrine-item .description,
+.vitrine-item .dynamic {
+  display: block;      /* garante largura respeitada */
+  width: 100%;         /* ocupa toda a célula */
+  min-width: 0;        /* permite encolher abaixo do conteúdo */
+  white-space: nowrap; /* força uma linha só */
+  overflow: hidden;    /* corta o que passar do width */
+  text-overflow: ellipsis; /* reticências no fim */
+}
+
+.loading-message {
+  font-size: 16px;
+  color: #555;
+  text-align: center;
+  margin-top: 20px;
+  min-width: 250px;
+}
+
+.empty-message {
+  font-size: 16px;
+  color: #555;
+  text-align: center;
+  margin-top: 20px;
+  min-width: 250px;
+}
