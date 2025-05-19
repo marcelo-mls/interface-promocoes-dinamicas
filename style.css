@@ -74,6 +74,7 @@ main {
 .form-container #view-btn {
   background: #36937e;
   margin-top: 10px;
+  width: 300px;
 }
 
 .form-container button:disabled {
