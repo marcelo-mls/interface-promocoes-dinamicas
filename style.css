@@ -26,6 +26,12 @@ main {
   overflow: hidden;
 }
 
+#api-select {
+  margin-bottom: 15px;
+  padding: 8px;
+  font-size: 14px;
+}
+
 .form-container {
   width: 300px;
   margin-right: 40px;
